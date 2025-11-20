@@ -1,0 +1,44 @@
+{
+  "resume_data": {
+    "name": "ELVIN DAVIS",
+    "email": "elvindavis03@gmail.com",
+    "phone": "+91-",
+    "skills": [
+      "python",
+      "java",
+      "sql"
+    ],
+    "experience": [
+      "experience developing production-",
+      "ready computer vision, and NLP systems. Currently advancing skills in Generative AI and Agentic AI through",
+      "specialized coursework."
+    ],
+    "education": [
+      "Master\u2019s Diploma in Generative AI and Agentic AI , Boston Institute of Analytics Current",
+      "Coursework: Gen AI,Agentic AI,RAG,LangGraph,MCP",
+      "BTech in Computer Science spl. in AI/ML , Christ University, Bangalore August 2021 - April 2025"
+    ],
+    "raw_text": "ELVIN DAVIS\n+91-730-627-2008 |Bangalore, Karnataka, India\nelvindavis03@gmail.com |linkedin.com/elvin-davis |github.com/elvin-011\nSUMMARY\nRecent Computer Science graduate with strong foundation in AI/ML and hands-on experience developing production-\nready computer vision, and NLP systems. Currently advancing skills in Generative AI and Agentic AI through\nspecialized coursework.\nEDUCATION\nMaster\u2019s Diploma in Generative AI and Agentic AI , Boston Institute of Analytics Current\nCoursework: Gen AI,Agentic AI,RAG,LangGraph,MCP\nBTech in Computer Science spl. in AI/ML , Christ University, Bangalore August 2021 - April 2025\nGrade:3.34 GPA\nSKILLS\nAI/ML & Data Science:\n\u2022Frameworks & Libraries: TensorFlow, Keras, PyTorch, scikit-learn, OpenCV, NumPy, pandas, Hugging Face\n\u2022NLP: Transformer Models, LLMs, Sentiment Analysis, LIME\n\u2022Computer Vision: Object Detection (YOLO), Image Classification, Real-time Detection\n\u2022Generative/Agentic AI: RAG, LangGraph, Google ADK, Multi-agent Systems, Workflow Orchestration\n\u2022Core Concepts: CNNs, Neural Networks, Feature Engineering, Statistical Analysis\nProgramming & Development:\n\u2022Languages: Python, Java, C, HTML/CSS, MySQL\n\u2022Tools: Git, GitHub, VS Code, PyCharm, Jupyter Notebook\n\u2022Platforms: Google Cloud Platform (GCP)\n\u2022Deployment & APIs: Flask, FastAPI, RESTful APIs, ONNX Runtime, Docker\nEXPERIENCE\nAI Intern Oct 2025 - Present\nJustHR Bangalore,Karnataka\n\u2022Developed an AI-powered travel agent bot to provide users with personalized destination recommendations and\nitinerary suggestions.\n\u2022Engineered an agentic workflow that enabled the bot to access and interpret the best combinations of recom-\nmendations based on user preference.\n\u2022Key Technologies: Python, Google ADK\nPROJECTS\nMulti-Tool Research Assistant System |GitHub |Live Demo\n\u2022Developed end-to-end research automation system integrating SERP API, Firecrawl API, and OpenAI GPT\nmodels with LangGraph orchestration for intelligent workflow management.\n\u2022The pipeline is capable of processing academic papers, web sources, and documents with contextual summariza-\ntion, citation management, and natural language querying interface.\n\u2022Implemented production-grade API integration architecture handling rate limiting, error recovery, and async\nprocessing for reliable research workflow automation at scale.\n\u2022Technologies: Python, LangGraph, SERP API, OpenAI API, Firecrawl API, Streamlit, Workflow Orchestration\nAbusive Comment Detection and Prevention System |GitHub\n\u2022Implemented scalable multi-label classification pipeline with data augmentation, class balancing, and real-time\ninference capability for social media content moderation at scale\n\u2022Architected ensemble system combining 4 specialized transformer models (DeBERTa, ELECTRA, HateBERT,\nTwitter-RoBERTa) leveraging unique capabilities for general text, sarcasm, hate speech, and social media content\nunderstanding\n\u2022Achieved 97% ensemble accuracy through strategic model combination, with individual models scoring above\n90% accuracy on balanced dataset of 150K+ augmented comments across three toxicity categories\n\u2022Technologies: Python, Transformers, PyTorch, BERT variants, Flask, NLP\nGarment Fault Detection Model |GitHub\n\u2022Architected and deployed Fine-Tuned YOLOv11L computer vision model achieving 93.4 % detection rate across\n6 defect categories\n\u2022Optimized for production deployment with 17.7 FPS processing speed (56ms latency) and converted to ONNX\nformat for framework-agnostic inference in manufacturing environments\n\u2022Technologies: Python, YOLOv11L, Computer Vision, Object Detection, Data Annotation, ONNX Runtime\nReal Time Facial Expression Recognition |GitHub |Live Demo\n\u2022Engineered custom CNN achieving 66% accuracy on 7-class FER-2013 dataset, successfully handling class im-\nbalance through weighted training and augmentation strategies\n\u2022Implemented end-to-end ML pipeline from data preprocessing to production deployment, improving key emotion\nrecall by 7% through iterative model optimization and hyperparameter tuning\n\u2022Deployed production-ready ONNX model with Flask backend enabling real-time video processing with optimized\ninference performance for web-based emotion analysis applications\n\u2022Technologies: Python, OpenCV, TensorFlow/Keras, Computer Vision, ONNX Runtime, Class Imbalance Han-\ndling",
+    "extracted_at": "2025-11-05T14:30:31.745160"
+  },
+  "ai_analysis": {
+    "weaknesses": [
+      "Critical Date Inaccuracy: The 'AI Intern' experience is listed with a start date in the future (Oct 2025), making the resume appear untruthful or carelessly prepared. This is a major red flag for recruiters.",
+      "Incomplete Project Description: The description for the 'Multi-Tool Research Assistant System' project is abruptly cut off, leaving a significant section of the resume unfinished and unprofessional.",
+      "Lack of Quantifiable Impact: While technically sound, the experience and project descriptions lack specific metrics or quantifiable achievements (e.g., 'improved efficiency by X%', 'processed Y data points', 'reached Z users').",
+      "Vague 'Master's Diploma' Entry: The 'Master\u2019s Diploma in Generative AI and Agentic AI' lacks a start date and the full, official name of the program, which can create confusion about its nature (e.g., a full master's degree vs. a professional certificate/diploma).",
+      "Generic Summary: The summary is quite broad and doesn't explicitly state the candidate's career goals or the specific types of roles they are targeting, which could make it less impactful for tailored applications."
+    ],
+    "tips": [
+      "Rectify Critical Date Error Immediately: Correct the 'AI Intern' start date to reflect the actual period of employment. This is paramount as a future date for current employment is an instant disqualifier for most recruiters.",
+      "Complete All Sections Thoroughly: Ensure the 'PROJECTS' section is fully completed and all descriptions are coherent and comprehensive. Proofread the entire resume meticulously for any other incomplete sentences, typos, or formatting issues.",
+      "Incorporate Quantifiable Achievements: For both experience and projects, rephrase bullet points to include numbers, percentages, or specific outcomes. For example, instead of 'Developed an AI-powered travel agent bot,' consider 'Developed an AI-powered travel agent bot, increasing user engagement by X% and processing Y recommendations daily.'",
+      "Clarify Educational Entries: Provide the full, official name of the 'Master\u2019s Diploma' program and include its start date (and expected end date if applicable). If it's a diploma and not a master's degree, ensure the title accurately reflects that to avoid misrepresentation.",
+      "Tailor Summary and Skills: Customize the 'SUMMARY' to align with the specific job description being applied for, highlighting relevant skills and career aspirations. Consider prioritizing skills within the 'SKILLS' section based on relevance to the target role."
+    ],
+    "score": 4,
+    "summary": "Elvin Davis is a recent Computer Science graduate specializing in AI/ML, currently enhancing skills through a Master's Diploma in Generative AI and Agentic AI. The candidate possesses a strong technical foundation in various AI/ML frameworks, NLP, and computer vision, complemented by proficiency in Python, cloud platforms (GCP), and deployment tools. Elvin has some practical experience as an AI Intern and has worked on relevant projects, demonstrating potential in developing intelligent systems. However, the resume contains critical errors such as future employment dates and an incomplete project description, significantly undermining its professionalism and immediate effectiveness."
+  },
+  "file_name": "Elvin Davis.pdf",
+  "processed_at": "2025-11-05T14:30:46.015387"
+}

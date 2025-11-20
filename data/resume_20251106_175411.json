@@ -1,0 +1,44 @@
+{
+  "resume_data": {
+    "name": "ELVIN DAVIS",
+    "email": "elvindavis03@gmail.com",
+    "phone": "+91-",
+    "skills": [
+      "python",
+      "java",
+      "sql"
+    ],
+    "experience": [
+      "experience developing production-",
+      "ready computer vision, and NLP systems. Currently advancing skills in Generative AI and Agentic AI through",
+      "specialized coursework."
+    ],
+    "education": [
+      "Master\u2019s Diploma in Generative AI and Agentic AI , Boston Institute of Analytics Current",
+      "Coursework: Gen AI,Agentic AI,RAG,LangGraph,MCP",
+      "BTech in Computer Science spl. in AI/ML , Christ University, Bangalore August 2021 - April 2025"
+    ],
+    "raw_text": "ELVIN DAVIS\n+91-730-627-2008 |Bangalore, Karnataka, India\nelvindavis03@gmail.com |linkedin.com/elvin-davis |github.com/elvin-011\nSUMMARY\nRecent Computer Science graduate with strong foundation in AI/ML and hands-on experience developing production-\nready computer vision, and NLP systems. Currently advancing skills in Generative AI and Agentic AI through\nspecialized coursework.\nEDUCATION\nMaster\u2019s Diploma in Generative AI and Agentic AI , Boston Institute of Analytics Current\nCoursework: Gen AI,Agentic AI,RAG,LangGraph,MCP\nBTech in Computer Science spl. in AI/ML , Christ University, Bangalore August 2021 - April 2025\nGrade:3.34 GPA\nSKILLS\nAI/ML & Data Science:\n\u2022Frameworks & Libraries: TensorFlow, Keras, PyTorch, scikit-learn, OpenCV, NumPy, pandas, Hugging Face\n\u2022NLP: Transformer Models, LLMs, Sentiment Analysis, LIME\n\u2022Computer Vision: Object Detection (YOLO), Image Classification, Real-time Detection\n\u2022Generative/Agentic AI: RAG, LangGraph, Google ADK, Multi-agent Systems, Workflow Orchestration\n\u2022Core Concepts: CNNs, Neural Networks, Feature Engineering, Statistical Analysis\nProgramming & Development:\n\u2022Languages: Python, Java, C, HTML/CSS, MySQL\n\u2022Tools: Git, GitHub, VS Code, PyCharm, Jupyter Notebook\n\u2022Platforms: Google Cloud Platform (GCP)\n\u2022Deployment & APIs: Flask, FastAPI, RESTful APIs, ONNX Runtime, Docker\nEXPERIENCE\nAI Intern Oct 2025 - Present\nJustHR Bangalore,Karnataka\n\u2022Developed an AI-powered travel agent bot to provide users with personalized destination recommendations and\nitinerary suggestions.\n\u2022Engineered an agentic workflow that enabled the bot to access and interpret the best combinations of recom-\nmendations based on user preference.\n\u2022Key Technologies: Python, Google ADK\nPROJECTS\nMulti-Tool Research Assistant System |GitHub |Live Demo\n\u2022Developed end-to-end research automation system integrating SERP API, Firecrawl API, and OpenAI GPT\nmodels with LangGraph orchestration for intelligent workflow management.\n\u2022The pipeline is capable of processing academic papers, web sources, and documents with contextual summariza-\ntion, citation management, and natural language querying interface.\n\u2022Implemented production-grade API integration architecture handling rate limiting, error recovery, and async\nprocessing for reliable research workflow automation at scale.\n\u2022Technologies: Python, LangGraph, SERP API, OpenAI API, Firecrawl API, Streamlit, Workflow Orchestration\nAbusive Comment Detection and Prevention System |GitHub\n\u2022Implemented scalable multi-label classification pipeline with data augmentation, class balancing, and real-time\ninference capability for social media content moderation at scale\n\u2022Architected ensemble system combining 4 specialized transformer models (DeBERTa, ELECTRA, HateBERT,\nTwitter-RoBERTa) leveraging unique capabilities for general text, sarcasm, hate speech, and social media content\nunderstanding\n\u2022Achieved 97% ensemble accuracy through strategic model combination, with individual models scoring above\n90% accuracy on balanced dataset of 150K+ augmented comments across three toxicity categories\n\u2022Technologies: Python, Transformers, PyTorch, BERT variants, Flask, NLP\nGarment Fault Detection Model |GitHub\n\u2022Architected and deployed Fine-Tuned YOLOv11L computer vision model achieving 93.4 % detection rate across\n6 defect categories\n\u2022Optimized for production deployment with 17.7 FPS processing speed (56ms latency) and converted to ONNX\nformat for framework-agnostic inference in manufacturing environments\n\u2022Technologies: Python, YOLOv11L, Computer Vision, Object Detection, Data Annotation, ONNX Runtime\nReal Time Facial Expression Recognition |GitHub |Live Demo\n\u2022Engineered custom CNN achieving 66% accuracy on 7-class FER-2013 dataset, successfully handling class im-\nbalance through weighted training and augmentation strategies\n\u2022Implemented end-to-end ML pipeline from data preprocessing to production deployment, improving key emotion\nrecall by 7% through iterative model optimization and hyperparameter tuning\n\u2022Deployed production-ready ONNX model with Flask backend enabling real-time video processing with optimized\ninference performance for web-based emotion analysis applications\n\u2022Technologies: Python, OpenCV, TensorFlow/Keras, Computer Vision, ONNX Runtime, Class Imbalance Han-\ndling",
+    "extracted_at": "2025-11-06T17:53:57.648925"
+  },
+  "ai_analysis": {
+    "weaknesses": [
+      "Critical Date Inconsistencies: The internship start date (Oct 2025) is in the future and directly contradicts the \"Recent Computer Science graduate\" statement, especially as the BTech also ends in April 2025. This creates significant confusion and raises red flags for recruiters.",
+      "Incomplete Sections & Formatting Errors: Both the \"PROJECTS\" section and potentially the \"EXPERIENCE\" (implied by the future date) are cut off or incomplete. The \"Master's Diploma\" entry also lacks a start date, making the resume appear unprofessional and hindering full comprehension.",
+      "Lack of Quantifiable Impact: The bullet points under \"EXPERIENCE\" are descriptive but lack specific metrics, numbers, or results that demonstrate the scale, success, or business impact of the candidate's contributions.",
+      "Vague Summary Statement: The \"Recent Computer Science graduate\" statement is misleading given the BTech completion in April 2025 and the internship starting in Oct 2025. It needs to accurately reflect the candidate's current academic and professional status.",
+      "Ambiguous \"Master's Diploma\": The \"Current\" status for the diploma is vague. It's unclear if this is a full-fledged Master's degree, a postgraduate certificate, or a specialized course, and when it started or is expected to finish."
+    ],
+    "tips": [
+      "Rectify All Date Inconsistencies & Errors: Immediately correct the internship dates to reflect actual past or present engagement. Clarify the graduation status \u2013 if still studying, state \"Expected Graduation: April 2025.\" Ensure all dates across education and experience are logical and accurate.",
+      "Complete All Sections & Proofread Thoroughly: Ensure no sections are cut off (especially \"PROJECTS\"). Proofread the entire resume meticulously for any grammatical errors, typos, or incomplete sentences. This includes adding a start date for the Master's Diploma.",
+      "Quantify Achievements with Metrics: For each bullet point under \"EXPERIENCE\" and \"PROJECTS,\" incorporate specific numbers, percentages, or metrics to showcase the impact and scale of your work (e.g., \"Developed an AI bot that processed X requests per day,\" \"Reduced manual processing time by Y%,\" \"Improved model accuracy by Z%\").",
+      "Refine the Summary Statement: Rewrite the summary to accurately reflect your current academic status and career goals. If still a student, state \"Anticipated Computer Science Graduate\" or \"Currently pursuing BTech... and Master's Diploma...\". Clearly articulate your target role and value proposition.",
+      "Clarify \"Master's Diploma\": Provide more details about the \"Master's Diploma\" \u2013 start date, expected completion, and clarify its nature (e.g., \"Postgraduate Diploma,\" \"Advanced Certificate\"). If it's a short-term course, consider moving it under a \"Certifications\" section to avoid confusion with a full Master's degree."
+    ],
+    "score": 4,
+    "summary": "Elvin Davis is a candidate with a strong technical foundation in AI/ML, specializing in Computer Vision, NLP, and advanced Generative/Agentic AI concepts. The resume showcases hands-on experience in developing AI-powered systems and a comprehensive skill set covering popular frameworks, languages, and deployment tools. While the candidate possesses a promising profile for AI/ML development roles, the resume is significantly hampered by critical errors such as future-dated experience and incomplete sections, which severely impact its professionalism and readability."
+  },
+  "file_name": "Elvin Davis.pdf",
+  "processed_at": "2025-11-06T17:54:11.751686"
+}
