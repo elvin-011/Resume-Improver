@@ -221,7 +221,7 @@ def run_analysis(resume_text: str, jd_text: str):
         overall strengths and professional presentation.
         
         **TASK 2: Weakness Analysis**
-        After the summary, identify 1 scannable weaknesses. 
+        After the summary, identify all scannable weaknesses. 
         Provide this as a clear, *numbered list* under a "Weaknesses:" heading.
         Focus on:
         1. Weak action verbs.
@@ -258,7 +258,7 @@ def run_analysis(resume_text: str, jd_text: str):
         the resume matches the job.
 
         **TASK 3: Weakness Analysis**
-        After the summary, identify 1 scannable weaknesses (including missing keywords). 
+        After the summary, identify all scannable weaknesses (including missing keywords). 
         Provide this as a clear, *numbered list* under a "Weaknesses:" heading.
         
         **TASK 4: Total Count**
