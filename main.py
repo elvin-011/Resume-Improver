@@ -9,6 +9,9 @@ import uvicorn
 import io
 import re
 
+# Import OpenAI
+# import openai
+
 # FastAPI and Pydantic
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from pydantic import BaseModel, Field
@@ -17,7 +20,7 @@ from typing import List, Dict
 # File Processing Libs
 import pdfplumber
 from PIL import Image
-import pytesseract
+# import pytesseract
 
 # PDF Generation Lib
 from fpdf import FPDF
@@ -356,6 +359,21 @@ class GenerateResumeRequest(BaseModel):
     template_name: str = "classic"
     jd_text: str
 
+class BuildChatRequest(BaseModel):
+    messages: List[ChatMessage]
+    jd_text: str 
+
+class BuildChatResponse(BaseModel):
+    ai_response: str
+    build_complete: bool
+
+class SynthesizeRequest(BaseModel):
+    messages: List[ChatMessage]
+    jd_text: str
+    
+class TranscribeResponse(BaseModel):
+    text: str
+
 # --- 5. API Endpoints ---
 
 @app.post("/analyze", response_model=AnalysisResponse)
@@ -387,7 +405,6 @@ async def start_chat_endpoint(request: StartChatRequest):
     try:
         response = model.generate_content(start_chat_prompt)
         
-        # --- FIX for JSON error ---
         ai_message = response.text
         if not ai_message or not ai_message.strip():
             ai_message = "I'm sorry, I had an error processing that request. Let's start with your first work experience. Can you tell me about it?"
@@ -530,11 +547,29 @@ async def generate_resume_endpoint(request: GenerateResumeRequest):
         response = model.generate_content(synthesis_prompt)
         final_resume_text = response.text
         
-        # Generate the PDF
+        # --- FIX: Replace unsupported characters for PDF ---
+        replacements = {
+            "\u2013": "-",  # en dash
+            "\u2014": "--", # em dash
+            "\u2018": "'",  # smart single quote left
+            "\u2019": "'",  # smart single quote right
+            "\u201c": '"',  # smart double quote left
+            "\u201d": '"',  # smart double quote right
+            "\u2022": "-",  # bullet
+        }
+        for char, replacement in replacements.items():
+            final_resume_text = final_resume_text.replace(char, replacement)
+        # ---------------------------------------------------
+
         pdf = FPDF()
         pdf.add_page()
-        pdf.set_font("Arial", size=10)
-        pdf.multi_cell(0, 5, final_resume_text)
+        # Using built-in font Helvetica to avoid missing .ttf errors
+        pdf.set_font("Helvetica", size=10)
+        
+        # Safety encoding to prevent crashes on other unicode chars
+        safe_text = final_resume_text.encode('latin-1', 'replace').decode('latin-1')
+        
+        pdf.multi_cell(0, 5, safe_text)
         pdf_bytes = pdf.output(dest='S').encode('latin-1')
         
         return StreamingResponse(
@@ -545,6 +580,158 @@ async def generate_resume_endpoint(request: GenerateResumeRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating PDF: {str(e)}")
+
+
+@app.post("/transcribe", response_model=TranscribeResponse)
+async def transcribe_audio_endpoint(file: UploadFile = File(...)):
+    if not openai_api_key:
+        raise HTTPException(status_code=500, detail="OpenAI API key not configured. Voice features are disabled.")
+
+    try:
+        audio_bytes = await file.read()
+        audio_file = io.BytesIO(audio_bytes)
+        audio_file.name = "recording.wav"
+        
+        client = openai.OpenAI(api_key=openai_api_key)
+        
+        transcription = client.audio.transcriptions.create(
+            model="whisper-1",
+            file=audio_file
+        )
+        
+        print(f"Whisper transcription: {transcription.text}")
+        return {"text": transcription.text}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error during transcription: {str(e)}")
+
+# --- [NEW] Endpoint 7: Start Build Chat ---
+@app.post("/start-build-chat", response_model=StartChatResponse)
+async def start_build_chat_endpoint(request: BuildChatRequest):
+    """Starts the guided 'build from scratch' interview."""
+    is_general_request = (request.jd_text == DEFAULT_JD)
+    first_prompt = ""
+    
+    if is_general_request:
+        first_prompt = "Hi! I'm here to help you build a new resume from scratch. Let's start with the basics. What is your full name?"
+    else:
+        first_prompt = f"Hi! I see you want to build a new resume targeted at a job. I'll ask you questions to build it. Let's start with your full name."
+
+    return {"first_ai_message": first_prompt}
+
+# --- [NEW] Endpoint 8: Build Chat ---
+@app.post("/build-chat", response_model=BuildChatResponse)
+async def build_chat_endpoint(request: BuildChatRequest):
+    """Handles the 'interview' conversation for building a resume."""
+    user_prompt = request.messages[-1].content
+    is_general_request = (request.jd_text == DEFAULT_JD)
+    
+    build_prompt = ""
+    if is_general_request:
+        build_prompt = f"""
+        You are an expert resume interviewer. Your goal is to patiently
+        ask the user questions, one by one, to get all the information
+        needed to build a resume.
+        
+        **Sections to cover (in order):**
+        1.  Full Name
+        2.  Contact Info (Phone, Email, LinkedIn)
+        3.  Professional Summary (ask for their title/goals)
+        4.  Skills (ask for technical and soft skills)
+        5.  Work Experience (ask for 2-3 jobs, one by one)
+        6.  Projects (ask for 1-2 projects)
+        7.  Education
+
+        **Chat History:**
+        {request.messages}
+
+        **Your Task:**
+        1.  Look at the chat history to see what you just asked.
+        2.  Based on the user's last answer ("{user_prompt}"), ask the *next*
+            logical question.
+        3.  If you have just collected the final piece of info (Education),
+            end your response with the exact token on a new line:
+            [BUILD_COMPLETE]
+        """
+    else:
+        build_prompt = f"""
+        You are an expert resume interviewer, and you are helping a user
+        build a resume *targeted* at a specific job.
+        
+        **Job Description (Target):**
+        {request.jd_text}
+        
+        **Sections to cover (in order):**
+        1.  Full Name
+        2.  Contact Info (Phone, Email, LinkedIn)
+        3.  Professional Summary (ask for their title, then help them
+            add keywords from the JD)
+        4.  Skills (ask for their skills, then suggest skills from the JD)
+        5.  Work Experience (ask for 2-3 jobs)
+        6.  Projects (ask for 1-2 projects)
+        7.  Education
+        
+        **Chat History:**
+        {request.messages}
+
+        **Your Task:**
+        1.  Look at the chat history to see what you just asked.
+        2.  Based on the user's last answer ("{user_prompt}"), ask the *next*
+            logical question. Use the JD to help guide them.
+        3.  If you have just collected the final piece of info (Education),
+            end your response with the exact token on a new line:
+            [BUILD_COMPLETE]
+        """
+        
+    try:
+        response = model.generate_content(build_prompt)
+        ai_response_text = response.text
+        
+        build_complete = "[BUILD_COMPLETE]" in ai_response_text
+        ai_response_text = ai_response_text.replace("[BUILD_COMPLETE]", "").strip()
+        
+        return {
+            "ai_response": ai_response_text,
+            "build_complete": build_complete
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error in build-chat response: {str(e)}")
+
+# --- [NEW] Endpoint 9: Synthesize and Analyze ---
+@app.post("/synthesize-and-analyze", response_model=AnalysisResponse)
+async def synthesize_and_analyze_endpoint(request: SynthesizeRequest):
+    """Takes a build-chat history, synthesizes a resume, analyzes it, and returns the analysis."""
+    try:
+        # Step 1: Synthesize the resume
+        synthesis_prompt = f"""
+        You are a resume synthesizer. Take the following interview
+        conversation and format it *only* into a simple, text-based resume.
+        Do not add any commentary.
+        
+        **Chat History:**
+        {request.messages}
+        
+        **Your Output (Resume Text Only):**
+        """
+        
+        response = model.generate_content(synthesis_prompt)
+        resume_text = response.text
+        
+        if not resume_text or len(resume_text) < 50: 
+             raise HTTPException(status_code=500, detail="Failed to synthesize resume from chat.")
+
+        # Step 2: Analyze the new resume (loop-back)
+        analysis_data = run_analysis(resume_text, request.jd_text)
+        
+        # Step 3: Return the combined response
+        return {
+            "resume_text": resume_text,
+            **analysis_data
+        }
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error during synthesize/analyze: {str(e)}")
+
 
 # --- 6. Run the Server ---
 if __name__ == "__main__":
