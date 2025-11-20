@@ -221,7 +221,7 @@ def run_analysis(resume_text: str, jd_text: str):
         overall strengths and professional presentation.
         
         **TASK 2: Weakness Analysis**
-        After the summary, identify all scannable weaknesses. 
+        After the summary, identify 1 scannable weaknesses. 
         Provide this as a clear, *numbered list* under a "Weaknesses:" heading.
         Focus on:
         1. Weak action verbs.
