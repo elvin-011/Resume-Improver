@@ -7,3 +7,4 @@ python-dotenv
 pdfplumber
 fpdf2
 python-multipart
+pytesseract==0.3.10
